@@ -10,11 +10,12 @@ namespace HW5
     {
         static void Main()
         {
+            const int size = 5;
             string accountname;
             double limit,amount;
             double currenamount;
             char choice;
-            Bank b=new Bank(1);
+            Bank b=new Bank(size);
             BankAccount account;
             BusinessBankAccount accountb;
             do
