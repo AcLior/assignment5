@@ -1,0 +1,14 @@
+C:\Users\danie\OneDrive\שולחן העבודה\SolHW5\HW5\obj\Debug\HW5.csprojAssemblyReference.cache
+C:\Users\danie\OneDrive\שולחן העבודה\SolHW5\HW5\obj\Debug\HW5.csproj.CoreCompileInputs.cache
+C:\Users\danie\OneDrive\שולחן העבודה\SolHW5\HW5\bin\Debug\HW5.exe.config
+C:\Users\danie\OneDrive\שולחן העבודה\SolHW5\HW5\bin\Debug\HW5.exe
+C:\Users\danie\OneDrive\שולחן העבודה\SolHW5\HW5\bin\Debug\HW5.pdb
+C:\Users\danie\OneDrive\שולחן העבודה\SolHW5\HW5\obj\Debug\HW5.exe
+C:\Users\danie\OneDrive\שולחן העבודה\SolHW5\HW5\obj\Debug\HW5.pdb
+D:\סמסטר א\סמסטר ב\C#\מטלות\assignment5\SolHW5\HW5\obj\Debug\HW5.csprojAssemblyReference.cache
+D:\סמסטר א\סמסטר ב\C#\מטלות\assignment5\SolHW5\HW5\obj\Debug\HW5.csproj.CoreCompileInputs.cache
+D:\סמסטר א\סמסטר ב\C#\מטלות\assignment5\SolHW5\HW5\obj\Debug\HW5.exe
+D:\סמסטר א\סמסטר ב\C#\מטלות\assignment5\SolHW5\HW5\obj\Debug\HW5.pdb
+D:\סמסטר א\סמסטר ב\C#\מטלות\assignment5\SolHW5\HW5\bin\Debug\HW5.exe.config
+D:\סמסטר א\סמסטר ב\C#\מטלות\assignment5\SolHW5\HW5\bin\Debug\HW5.exe
+D:\סמסטר א\סמסטר ב\C#\מטלות\assignment5\SolHW5\HW5\bin\Debug\HW5.pdb
