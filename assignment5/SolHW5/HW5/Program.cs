@@ -16,8 +16,7 @@ namespace HW5
             double currenamount;
             char choice;
             Bank b=new Bank(size);
-            BankAccount account;
-            BusinessBankAccount accountb;
+           
             do
             {
                 Console.WriteLine("Choose what to do:\nA)Add account\nB)Add Business account\nC)Close account\nF)Close Business account\nD)Deposit\nW)Withdraw\nM)Month elapsed\nX)Print Assets\nL)Print Details\nE)Exit");
@@ -26,14 +25,14 @@ namespace HW5
                 switch (choice)
                 {
                     case 'A':
-
+                       
                         Console.WriteLine("Enter account name");
                         accountname = Console.ReadLine();
                         Console.WriteLine("Enter account amount");
                         currenamount = double.Parse(Console.ReadLine());
                         Console.WriteLine("Enter limit");
                         limit = double.Parse(Console.ReadLine());
-                        account = new BankAccount(accountname, currenamount, limit);
+                        BankAccount account = new BankAccount(accountname, currenamount, limit);
                         try
                         {
                             b.AddAccount(account);
@@ -50,7 +49,7 @@ namespace HW5
                         accountname = Console.ReadLine();
                         Console.WriteLine("Enter account amount");
                         currenamount = double.Parse(Console.ReadLine());
-                        accountb = new BusinessBankAccount(accountname, currenamount);
+                        BusinessBankAccount accountb = new BusinessBankAccount(accountname, currenamount);
                         try
                         {
                             b.AddAccount(accountb);
@@ -67,14 +66,10 @@ namespace HW5
                     case 'C':
                         Console.WriteLine("Enter account name");
                         accountname = Console.ReadLine();
-                        Console.WriteLine("Enter account amount");
-                        currenamount = double.Parse(Console.ReadLine());
-                        Console.WriteLine("Enter limit");
-                        limit = double.Parse(Console.ReadLine());
-                        account = new BankAccount(accountname, currenamount, limit);
+                       
                         try
                         {
-                            b.CloseBankAccount(account);
+                            b.CloseBankAccount(b.GetBankAccount(accountname));
 
                         }
                         catch(ArgumentException)
@@ -87,12 +82,10 @@ namespace HW5
 
                         Console.WriteLine("Enter account name");
                         accountname = Console.ReadLine();
-                        Console.WriteLine("Enter account amount");
-                        currenamount = double.Parse(Console.ReadLine());
-                        accountb = new BusinessBankAccount(accountname, currenamount);
+                        
                         try
                         {
-                            b.CloseBankAccount(accountb);
+                            b.CloseBankAccount(b.GetBusinessBankAccount(accountname));
                         }
                         catch (ArgumentException)
                         {
@@ -104,21 +97,29 @@ namespace HW5
                     case 'D':
                         int num;
 
-                        Console.WriteLine("Enter type of account: 1.Regular\n2.Business");
+                        Console.WriteLine("Enter type of account: \n1.Regular\n2.Business");
                         num = int.Parse(Console.ReadLine());
                         Console.WriteLine("Enter account name");
                         accountname = Console.ReadLine();
                         Console.WriteLine("Enter the amount");
                         amount = double.Parse(Console.ReadLine());
 
-                        if (num == 1)
+                        try
                         {
-                            b.GetBankAccount(accountname).Deposit(amount);
+                            if (num == 1)
+                            {
+                                b.GetBankAccount(accountname).Deposit(amount);
+                            }
+                            else
+                            {
+                                b.GetBusinessBankAccount(accountname).Deposit(amount);
+                            }
                         }
-                        else
+                        catch (ArgumentException)
                         {
-                            b.GetBusinessBankAccount(accountname).Deposit(amount);
+                            Console.WriteLine("Cannot add negative value");
                         }
+
                         break;
 
                     case 'W':
@@ -129,14 +130,20 @@ namespace HW5
                         accountname = Console.ReadLine();
                         Console.WriteLine("Enter the amount");
                         amount = double.Parse(Console.ReadLine());
-
-                        if (num == 1)
+                        try
                         {
-                            b.GetBankAccount(accountname).Withdraw(amount);
+                            if (num == 1)
+                            {
+                                b.GetBankAccount(accountname).Withdraw(amount);
+                            }
+                            else
+                            {
+                                b.GetBusinessBankAccount(accountname).Withdraw(amount);
+                            }
                         }
-                        else
+                        catch (InvalidOperationException)
                         {
-                            b.GetBusinessBankAccount(accountname).Withdraw(amount);
+                            Console.WriteLine("Error: cannot withraw a value greater than the limit"); 
                         }
                         break;
 

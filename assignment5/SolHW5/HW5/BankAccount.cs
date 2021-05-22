@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace HW5
@@ -12,10 +13,10 @@ namespace HW5
         readonly int accountNum = 0;
         protected double currentAmount;
         protected double limit;
-
+        public static int counter = 0;       
         public BankAccount(string accountName, double currentAmount, double limit)
         {
-            accountNum++;
+            accountNum = ++counter;
             this.accountName = accountName;
             if (currentAmount < 0)
             {
@@ -33,12 +34,12 @@ namespace HW5
         {
             get { return this.accountName; }
         }
-
+        
         public int AccountNum
         {
 
-            get { return this.accountNum; }
-        
+            get { return accountNum; }
+   
         }
         public double CurrentAmount
         {
@@ -68,16 +69,19 @@ namespace HW5
             {
                 throw new ArgumentException("Cannot withraw negative value");
             }
-            else if ((limit>0&&amountToWithraw>limit+currentAmount)|| (limit < 0 && amountToWithraw > currentAmount - limit))
+            else if (amountToWithraw>currentAmount-limit)
             {
-                throw new InvalidOperationException("Error: cannot withraw a value greater than the limit");
+                throw new InvalidOperationException();
             }
-           
-            currentAmount -= amountToWithraw;
+            else
+            {
+                currentAmount -= amountToWithraw;
+
+            }
         }
         public string PrintAccount()
         {
-            return "Account name: " + accountName + "\nAccount number: " + accountNum + "\nCurrent amount: " + currentAmount + "\nLimit: " + limit+"\n";
+            return "Account name: " + accountName + "\nAccount number: " + AccountNum + "\nCurrent amount: " + currentAmount + "\nLimit: " + limit+"\n";
         }
     }
 }
